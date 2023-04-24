@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnimeJS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <img src="assets/stars.png" id="stars" />
+      <img src="assets/moon.png" id="moon" />
+      <img src="assets/mountains_behind.png" id="mountains_behind" />
+      <h2 id="text">Me contrata! 👨‍💻</h2>
+      <a href="#" id="button1">Play</a>
+      <a href="https://marcussenise.github.io/portfolio/" target="_blank" id="button2">🔗</a>
+      <img src="assets/mountains_front.png" id="mountains_front" />
+    </section>
+    <script src="anime.min.js"></script>
+    <script>
+      var tl = anime.timeline({
+        easing: "easeInExpo",
+        duration: 750,
+        autoplay: false
+      });
+
+      // Add children
+      tl.add({
+        targets: "#button1",
+        top: '1500px',
+        duration: 500,
+        easing: 'easeInOutSine'
+      })
+      .add({
+        targets: "#stars",
+        top: '0px',
+        duration: 1000,
+        easing: 'easeInOutSine'
+      })
+      .add({
+        targets: "#mountains_behind",
+        bottom: '0px',
+        duration: 1000,
+        easing: 'easeInOutSine'
+       })
+       .add({
+           targets: "#moon",
+           top: '0px',
+           easing: 'easeInOutSine',
+           duration: 1000
+         })
+      .add({
+        targets: "#mountains_front",
+        bottom: '0px',
+        duration: 1000,
+        easing: 'easeInOutSine'
+       })
+      .add({
+        targets: "#text",
+        marginRight: '0px',
+        duration: 1000,
+        easing: 'easeInOutBack'
+       })
+       .add({
+        targets: "#button2",
+        marginTop: '80px',
+        duration: 1000,
+        easing: 'easeInOutBack'
+      })
+
+        document.querySelector('#button1').onclick = tl.play;
+
+    </script>
+  </body>
+</html>
